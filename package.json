@@ -1,0 +1,18 @@
+{
+  "name": "agenda-contactos-angular",
+  "version": "1.0.0",
+  "description": "Agenda de contactos en AngularJS",
+  "scripts": {
+    "start": "http-server  -p 8000 -c-1"
+  },
+  "author": "Uqbar-Project",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.6",
+    "angular-ui-router": "^0.4.3",
+    "bootstrap": "^3.3.7",
+    "http-server": "^0.10.0",
+    "jquery": "^3.2.1",
+    "lodash": "^4.17.4"
+  }
+}

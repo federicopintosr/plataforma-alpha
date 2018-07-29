@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" ng-app="siniestrosApp">
+
+<head>
+  <meta charset="utf-8">
+  <title>AlphaOcupacional</title>
+
+  <!-- JQUERY -->
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  
+  <!-- BOOTSTRAP -->
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <!-- ANGULAR  -->
+  <script src="node_modules/angular/angular.min.js"></script>
+  <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+  <!-- LODASH  -->
+  <script src="node_modules/lodash/lodash.min.js"></script>
+  
+  <link rel="shortcut icon" href="./images/icono.ico">
+</head>
+
+<body>
+
+    <header id="main-header">  
+        <nav class="navbar navbar-inverse ph">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#"> Sistema de Siniestros OnLine</a></li>
+       <!--       <img class="iconoTabla" src="./images/logooriginal2.jpg"> -->
+            </div>
+            <ul class="nav navbar-nav">
+              <li><a ui-sref="principal"> <span class="glyphicon glyphicon-list"></span> Listado de Siniestros</a></li>
+              <li><a ui-sref="newSiniestros"> <span class="glyphicon glyphicon-plus"></span> Crear siniestro</a></li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+      <body>
+
+        
+        <div class="well-lg">
+          <div ui-view></div>
+        </div>
+        
+</div>
+
+<!-- js -->
+<script src="/js/contacto.js"></script>
+<script src="/js/contactoController.js"></script>
+<script src="routes.js"></script>
+<script src="app.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+
+
+</body>
+</html>
+

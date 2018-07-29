@@ -1,0 +1,71 @@
+
+.buscarLibros{
+    font-weight: bolder;
+}
+
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    
+    color: white;
+}
+
+.ph {
+    background-color: #4CAF50;
+}
+.navbar-default .navbar-fnt {
+    color: #FFFFFF;
+}
+
+.navbar-inverse .nav li a{
+    color: white;
+  }
+
+  .navbar-header li a {
+    color: white;
+  }
+  #table {
+    height: 300px;
+    border-collapse:collapse; 
+    border: none;
+  }
+
+
+  customers td:nth-child(3) {
+	width: 50px;
+}
+
+#tituloDetalle{
+    font-weight:bold;
+    text-align: left;
+
+}
+
+  .tituloSiniestro{
+      text-align: center;
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      
+  }
+
+  .observaciones {
+      width: 50%;
+  }
