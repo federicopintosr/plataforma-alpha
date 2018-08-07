@@ -1,3 +1,9 @@
+        <!-- BOOTSTRAP -->
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.min.css">
+        <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
+
 <div class="panel panel-success">
 
     <div class="panel-heading ">
