@@ -33,24 +33,20 @@
        <!--       <img class="iconoTabla" src="./images/logooriginal2.jpg"> -->
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="./partials/listadoSiniestros.php"> <span class="glyphicon glyphicon-list"></span> Listado de Siniestros</a></li>
-              <li><a href="./partials/newSiniestros.php"> <span class="glyphicon glyphicon-plus"></span> Crear siniestro</a></li>
+                <li><a href="#" onclick="Seleccion('partials/listadoSiniestros.php');"> <span class="glyphicon glyphicon-list"></span> Listado de Siniestros</a></li>
+                <li><a href="#" onclick="Seleccion('partials/newSiniestros.php');"> <span class="glyphicon glyphicon-plus"></span> Crear siniestro</a></li>
             </ul>
           </div>
         </nav>
       </header>
     
     <body>
-        <iframe id="frame" src="./partials/listadoSiniestros.php" width="100%" height="1000"> 
-            <span class="glyphicon glyphicon-list"></span> Listado de Siniestros
+        <iframe id="cuadro" src="partials/listadoSiniestros.php" width="100%" height="1000"> 
         </iframe>
 
         
     </body>
-    
-        <div class="well-lg">
-            <div ui-view></div>
-        </div>
+
 
     </div>
 
@@ -60,6 +56,11 @@
     <script src="app.js"></script>
     <link rel="stylesheet" type="text/css" href="./css/style.css">-->
  <link rel="stylesheet" type="text/css" href="./css/style.css">
+ <script> 
+            function Seleccion(url){ 
+                document.getElementById("cuadro").src=url;
+            } 
+  </script>
 
 </body>
 </html>
