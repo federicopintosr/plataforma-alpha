@@ -3,6 +3,11 @@
     <head>        
         <meta charset="windows-1252">
         <title>AlphaOcupacional</title>
+                <!-- BOOTSTRAP -->
+        <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./bootstrap/css/bootstrap-theme.min.css">
+        <script src="../bootstrap/js/bootstrap.min.js"></script>
+        
         <script type="text/javascript" src="/../Jquery bajadas/jquery-1.7.1.min.js"></script>
         <script type="text/javascript" src="/../Jquery bajadas/ajax.microsoft.com_ajax_jquery.ui_1.8.6_jquery-ui.min.js"></script>
         <link type="text/css" rel="Stylesheet" href="../Jquery bajadas/ajax.microsoft.com_ajax_jquery.ui_1.8.6_themes_smoothness_jquery-ui.css"/>
@@ -11,7 +16,7 @@
         <script src="/../FuncionesVarias/FuncionesJs.js"></script>
         <link rel="stylesheet" href="/../Jquery bajadas/JAlert.css" />
         <link rel="shortcut icon" href="./images/icono.ico">
-
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
 
        
         <script type="text/javascript">
@@ -30,7 +35,9 @@
             }
             function FIngresar() {                
                 document.getElementsByName('FMenu').submit();
+                
             }
+           
 
 //            $(document).ready(function () {
 //            });
@@ -44,13 +51,23 @@
      //   $Base = new Base;
      //   $menu = "";
     //$Conexion = $Base->Conectar();
-   
+//    $Sql = "Select count(*) as Registros From M_Usuarios Where nombre='" . $_SESSION['nombre'] . "' and Pass='" . $_SESSION['pass'] . "'";
+  //  $fila = $Base->Valor($Sql);
+
     $serverName = "192.168.0.47";
     $usuario = "Fede";
     $pass = "2401";
     $baseDeDatos = "art";
     $port = 3306;
+    $conn = mysqli_connect($serverName, $usuario, $pass, $baseDeDatos, $port) or die("coño: no se conectó");
+
+
     
+     
+        //$sql = "Select * From usuarios";
+ //       while ($campos = mysqli_fetch_array($conn)) {
+//            echo $campos['nombre'] . "<br>";
+  //          }    
 //Se utiliza para mantener la sesiÃ³n en todas las paginas
         if (!isset($_SESSION)) {
             session_start();
@@ -58,59 +75,90 @@
 
 //Iniciamos la sesiÃ³n despues de enviar el formulario
         if (isset($_POST['usuario'])) {
-            $_SESSION['nombre'] = $_POST['usuario'];
-            $_SESSION['pass'] = $_POST['pass'];
+            $_SESSION['username'] = $_POST['usuario'];
+            $_SESSION['password'] = $_POST['pass'];
             header('Location: ' . $_SERVER['PHP_SELF']);
+            
         }
 
 //Cerramos la sesiÃ³n despues de hacer click en Desconectar
         if (isset($_GET['cerrar'])) {
-            $_SESSION['nombre'] = null;
-            unset($_SESSION['nombre']);
-            $_SESSION['pass'] = null;
-            unset($_SESSION['pass']);
+            $_SESSION['username'] = null;
+            unset($_SESSION['username']);
+            $_SESSION['password'] = null;
+            unset($_SESSION['password']);
             header('Location: ' . $_SERVER['PHP_SELF']);
             session_destroy();
         }
 
 //Si no existe la sesiÃ³n de usuario mostramos el formulario de loguin
-        if (!isset($_SESSION['nombre'])) {
+        if (!isset($_SESSION['username'])) {
             ?>
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" id="idFormInicioSesion">
-
-                <div class='modal3-contenido' style='width:35%;height: 17rem;'>
-                    <p class='logo' style='width:100%;text-align: center'>GestiÃ³n web</p>
-                    <br>
+            
+            <div class="panel panel-success" style='width:35%;height: 28rem;' >
+                
+                     
+                    <div class="panel-heading ">
+                         <p class="tituloSiniestro"> Gestion web </p>
+                     </div>
+                   
+                    <div class="panel-body">
+                        
                     <ul>
-                        <li class="lista" id="l1">
-                            Nombre: <br>
-                            <input  type="text" id='IdUsuario' name="usuario" class="logo up"   onkeyup="FEnter(event, this);" ><br><br>
-                        </li>
-                        <li class="lista" id="l2">
-                            Clave: <br>
-                            <input type="password" id='idPass' name="pass" class="logo up"   onkeyup="FEnter(event, this);" ><br><br>
-                        </li>
-                        <li>
-                            <input type="button" id='BotonIngresar' name="boton" value="Ingresar" class="botonInicial"  onclick="submit();">
-                        </li>
-
+                        <div class="input-group">
+                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input  type="text" id='usuario' name="usuario" class="form-control" onkeyup="FEnter(event, this);" ><br><br>
+                        </div>
+                        
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input type="password" id='pass' name="pass" class="form-control" onkeyup="FEnter(event, this);" ><br><br>
                     </ul>
-                    <br><br>
+                        
+                         <br>
+                         <br>
+
+                            <div class="modal-footer">
+                            
+                            <input type="button" class="btn btn-success" id='BotonIngresar' name="boton" value="Ingresar" class="botonInicial"  onclick="submit();">
+                            
+                            <br>
+
                     <p Id='mensaje'></p>
+                    
                     <script>document.getElementById('FMenu').style = 'display:none';</script>
-                </div>
+                    </div>
+                    
+         </div>
             </form>
         
             <?php
             
-
                 
             // echo  MostrarMenu();
         } else {
+            
+         echo '<script type="text/javascript">window.location="inicio.php";</script>';          
+
             //Si existe la sesiÃ³n mostramos el nombre de usuario y la opciÃ³n desconectar                        
 //            echo MostrarMenu();
-            
-             echo '<script type="text/javascript">window.location="inicio.php";</script>';          
+//        $sql = "Select * From usuarios";
+//        $consu = mysqli_query($conn, $sql);
+  //      while ($campos = mysqli_fetch_array($consu)) {
+//            echo $campos['nombre'] . "<br>";
+    //        //echo ($campos[0] == 1 ? "UNO" : "DOS" ); // iif 
+//            if (count($campos) > 0) {
+//                echo "Dos campos " . count($campos);
+ //           } else {
+//                echo "ningun campo";
+//            }
+
+//            for ($x = 0; $x < 10; $x++) {
+//                echo $x . "<br>";
+ //           }
+        
+        
     
   }  
           
@@ -119,4 +167,3 @@
 
         
         
-        <link rel="stylesheet" type="text/css" href="./css/styleLogin.css">

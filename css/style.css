@@ -58,6 +58,11 @@
 
 }
 
+    .imagenLogo{
+        
+        
+    }
+
   .tituloSiniestro{
       text-align: center;
       font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -66,6 +71,13 @@
       
   }
 
-  .observaciones {
+  .observaciones{
       width: 50%;
   }
+  
+  .panelLogin{
+      width:35%;
+      height: 30rem;
+  }
+  
+  

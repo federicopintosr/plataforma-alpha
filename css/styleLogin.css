@@ -1,55 +1,62 @@
-            #desconectar{
-                color:#999999;
-                text-decoration: none;
-            }
-            #desconectar:hover{
-                color:#FF7788;
-            }
-            #Panel1{
-                background-color:#2282ea;
-                width: 60%;
-                height: 50%;
-                top:25%;
-                left:20%;
-                margin: 0;
-                position:absolute;
-                display: none;
-            }
-            .modal3-contenido{
-                background-color:  rgba(100,80,100,0.3);
-                width:300px;
-                padding: 20px 30px;
-                margin: 20% auto;
-                position: relative;
-                z-index: 5;
-                border: brown;
-                border-style:  ridge;
-            }
-            .botonInicial{
-                background-color: #800000;
-                color:yellow;
-                padding: 5px 5px;
-                border-style:  ridge;
-                position: absolute;
-            }
-            #desconectar:hover{
-                color: #C00000;
-            }
+#desconectar{
+    color:#999999;
+    text-decoration: none;
+}
+#desconectar:hover{
+    color:#FF7788;
+}
+#Panel1{
+    background-color:#2282ea;
+    width: 60%;
+    height: 50%;
+    top:25%;
+    left:20%;
+    margin: 0;
+    position:absolute;
+    display: none;
+}
+.modal3-contenido{
+    background-color:  rgba(100,80,100,0.3);
+    width:300px;
+    padding: 20px 30px;
+    margin: 20% auto;
+    position: relative;
+    z-index: 5;
+    border: brown;
+    border-style:  ridge;
+}
+.botonInicial{
+    background-color: #800000;
+    padding: 5px 5px;
+    border-style:  ridge;
+    position: absolute;
+}
+#desconectar:hover{
+    color: #C00000;
+}
 
-            .up{
-                text-align: left;
-                align-content:  flex-start;
-                display:list-item;
-                float:left;
-            }
-            .PantallaMax{
-                background: url('.//Imagenes/pantalla.png');
-                background-repeat:  no-repeat;
-                background-position:  center;
-                -webkit-background-size: contain;
-                -moz-background-size: contain;
-                -o-background-size: contain;    
-                background-color: rgb(200,200,100);
-                opacity: .5;
+.up{
+    text-align: left;
+    align-content:  flex-start;
+    display:list-item;
+    float:left;
+}
+.PantallaMax{
+    background: url('.//Imagenes/pantalla.png');
+    background-repeat:  no-repeat;
+    background-position:  center;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;    
+    background-color: rgb(200,200,100);
+    opacity: .5;
 
-            }
+}
+
+.tituloLogin{
+      text-align: center;
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      
+  }
