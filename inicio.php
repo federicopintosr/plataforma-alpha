@@ -24,7 +24,9 @@
     </head>
 
 <body>
-
+<?php
+        include 'CheckLogin.php';
+?>
     <header id="main-header">  
         <nav class="navbar navbar-inverse ph">
           <div class="container-fluid">

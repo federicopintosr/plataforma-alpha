@@ -1,0 +1,70 @@
+::placeholder{
+    opacity: 0.5;
+}
+
+.divListaMultiCheck{
+    height: 1.1em;
+    width: 100%;
+    overflow: hidden;
+
+    border-radius: 2px;
+    position: relative ;
+}
+.divListaMultiCheck:hover{   
+    transition-duration: 0.7s; 
+    overflow:visible  ; 
+    z-index: 2;
+}
+.tilutoListaMultiCheck{
+
+    background-color: wheat;
+    width: 100%;
+    transition: color .2s ease-in-out;
+    background: #555;
+    background: -moz-linear-gradient(#555,#222);
+    background: -webkit-linear-gradient(#555,#222);
+    background: -o-linear-gradient(#555,#222);
+    background: -ms-linear-gradient(#555,#222);
+    background: linear-gradient(#DCA,#FFF);
+    color:#222;
+
+
+}
+.bodyListaMultiCheck{                
+    position: relative;
+    background-color:  aliceblue;
+    overflow: auto;
+    height: 20em; 
+    display: block;
+    background: #555;
+    background: -moz-linear-gradient(#DDD,#FFF);
+    background: -webkit-linear-gradient(#DDD,#FFF);
+    background: -o-linear-gradient(#DDD,#FFF);
+    background: -ms-linear-gradient(#DDD,#FFF);
+    background: linear-gradient(#DDB,#FFF);
+    color:#222;
+    font-size: small; 
+}            
+.bodyListaMultiCheck tr {
+    border-bottom:  1px gray solid;   
+    width: 100em;
+    
+}
+.bodyListaMultiCheck tr td{
+    padding: 3px;     
+    font-size: 90%;
+   
+}
+.divListaMultiCheck table{
+    width: 100%;  
+ 
+
+}
+.divListaMultiCheck tr:hover{
+    background-color: gray;
+    color:#FDDDDD;
+}
+
+.claseCkeckBox{
+    display:none;
+}
