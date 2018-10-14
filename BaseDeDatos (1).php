@@ -10,12 +10,12 @@ class Base {
 
         if ($modo[0] == 2) {  // MySQL
             
-        $serverName = "marcosj.dyndns.org";
-        $usuario = "Fede";
-        $pass = "2401";
-        $baseDeDatos = "alpha";
-        $port = 3306;
-        $result = mysqli_connect($serverName, $usuario, $pass, $baseDeDatos, $port) or die("coño: no se conectó");
+            $serverName = "urujuancho.dyndns.org";
+            $usuario = "Fede";
+            $pass = "2401";
+            $baseDeDatos = "Alpha";
+            $port = 3306;
+            $result = mysqli_connect($serverName, $usuario, $pass, $baseDeDatos, $port) or die("coño: no se conectó");
             //mysql_select_db($baseDeDatos);
             return $result;
         } else {  //MSSQL 
@@ -49,8 +49,6 @@ class Base {
         $s = chr(34);
         $sql = str_replace($s, "'", $sql);
         $sql = mb_convert_encoding($sql, 'windows-1252', 'UTF-8');
-        
-        //$sql = str_replace("top(1)", " ", $sql) . " LIMIT 1";
         if ($modo[0] == 2) {  // MySQL
             $sql = str_replace("Isnull", "COALESCE", $sql);
             $sql = str_replace("len(", "LENGTH(", $sql);

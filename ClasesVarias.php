@@ -148,7 +148,7 @@ class ClasesVarias {
         }
     }
 
-    function ListaMultiCheck($Titulo, $Id, $sql) {
+    function ListaMultiCheck($Titulo, $Id, $sql,$Estilos=array()) {
         while (strpos($sql, "  ") !== FALSE) {
             $sql = str_replace("  ", " ", $sql);
         }
@@ -157,7 +157,7 @@ class ClasesVarias {
                 '    <table id="' . $Id . '">' .
                 '        <thead class="tilutoListaMultiCheck">' .
                 '            <tr>' .
-                '                <th colspan="3" >' . $Titulo . '</th>' .
+                '                <th colspan="3" > <span style="float: right" class="glyphicon glyphicon-chevron-down"></span>' . $Titulo . '</th>' .
                 '            </tr>' .
                 '        </thead>' .
                 '        <tbody  class="bodyListaMultiCheck" >';
@@ -167,14 +167,16 @@ class ClasesVarias {
             $salida = $salida .
             '            <tr>';
             $salida=$salida. '               <td><input class="claseCkeckBox" type="checkbox"/></td>' ;
-
+            $estilo="";
             for ($i = 1; $i <= substr_count(strtoupper($sql), "AS CAMPO"); $i++) {
-                $estilo = "";
-                if ($i == 2) {
-                    $estilo = ' style="width:100%;" ';
-                }else if($i==3){
-                     $estilo = ' style="display:none;" ';
+                if (count($Estilos)>0){
+                    $estilo=" style= '".$Estilos[$i]."' ";
                 }
+//                if ($i == 2) {
+//                    $estilo = ' style="width:100%;" ';
+//                }else if($i==3){
+//                     $estilo = ' style="display:none;" ';
+//                }
                 $salida = $salida .
                         //'               <td style="text-align:right;">' . $row['Campo'.$i] . '</td>' .
                         '               <td ' . $estilo . ' >' . mb_convert_encoding($row['Campo' . $i], 'UTF-8', 'windows-1252') . '</td>';

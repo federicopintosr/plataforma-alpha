@@ -57,7 +57,7 @@
         $serverName = "urujuancho.dyndns.org";
         $usuario = "Fede";
         $pass = "2401";
-        $baseDeDatos = "Alpha";
+        $baseDeDatos = "alpha";
         $port = 3306;
         $conn = mysqli_connect($serverName, $usuario, $pass, $baseDeDatos, $port) or die("coño: no se conectó");
 
@@ -92,6 +92,10 @@
 //Si no existe la sesiÃ³n de usuario mostramos el formulario de loguin
         if (!isset($_SESSION['username'])) {
             ?>
+        <div class="login_wrapper">
+        <div class="animate form login_form">
+          <section class="login_content">
+              
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" id="idFormInicioSesion">
 
                 <div class="panel panel-success" style='width:35%;height: 28rem;' >
@@ -130,6 +134,9 @@
 
                             </div>
                             </form>
+                       </section>
+
+        </div>
 
                             <?php
                             // echo  MostrarMenu();

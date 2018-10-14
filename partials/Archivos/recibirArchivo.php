@@ -1,22 +1,31 @@
-<?php
-//$x=$_SERVER['DOCUMENT_ROOT'];
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <script type="text/javascript" src="/../Jquery bajadas/jquery-1.7.1.min.js"></script>
+    </head>
+    <body>
+        <?php
+        $x = $_SERVER['DOCUMENT_ROOT'];
 //echo "<script>alert(". print_r($_SERVER) .");</script>";
 //return;
-        include $_SERVER['DOCUMENT_ROOT']. '/Alpha-php//BaseDeDatos.php';
+        include $x . '/Alpha-php/BaseDeDatos.php';
         $Base = new Base;
-$sql="Select Max(Isnull(Id,0)) From Siniestros1 ";
-$id=$Base->Valor($sql);
-
-//$id=$_POST['IdNuevo'];
-$cuantos=$_FILES['Archivo']['name'];
-for ($i=0;$i<count($cuantos);$i++){
-copy($_FILES['Archivo']['tmp_name'][$i],"A".$id."_". $_FILES['Archivo']['name'][$i]);
-$nombre = $_FILES['Archivo']['name'][$i];
-    
-}
-echo "El archivo(s) se grabo correctamente.<br>";
+        $sql = "Select Ifnull(Max(Id),0) as Ultimo From siniestros1 ";
+        $id = $Base->Valor($sql)[0];
+        $cuantos = $_FILES['Archivo']['name'];
+        if ($_FILES['Archivo']['name'][0] != "") {
+            for ($i = 0; $i < count($cuantos); $i++) {
+                copy($_FILES['Archivo']['tmp_name'][$i], "Id" . $id . "_" . $_FILES['Archivo']['name'][$i]);
+                $nombre = $_FILES['Archivo']['name'][$i];
+            }
+            
+            echo "El archivo(s) se grabo correctamente.<br>";
+        }
 //echo "<img src=\"$nombre\">";
-echo "<script>alert(".$id.");</script>";
-?>
- 
- 
+        //echo "<script>alert('" . $_FILES['Archivo']['name'][0] . "');</script>";
+        //Echo "<script>$(document).submit();</script>";
+        return;
+        ?>
+    </body>
+</html>
+
