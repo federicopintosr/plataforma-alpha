@@ -138,7 +138,13 @@
                                 ?>
 
                             </th>
-                            <th>Estado</th>
+                            <th>
+                                <?php
+                                $estilos = array("display:none;", "text-align:right;", "width:100%;");
+                                echo"<text id='IdEstado' class='divListaMultiCheck' style='display:block;width:100%'>" . $cv->ListaMultiCheck("Estados", "estados", "Select Id as Campo1,Estado as Campo2 From estados Order by Id", $estilos) . "</text>";
+                                ?>
+
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -148,7 +154,7 @@
                             </td>
                             <td><input type="text" class="form-control" id="zona" readonly=""/></td> 
                             <td> <input type="text" class="form-control" id="proc" placeholder="Procedimiento" readonly=""/></td>
-                            <td><label class="checkbox-inline form-control"> <input type="checkbox" value="" id="cerrado"/>Cerrado</label></td>
+                            <td> <input type="text" class="form-control" id="est" placeholder="Estado" readonly=""/></td>
                         </tr>
                     </tbody>
 
@@ -186,7 +192,7 @@
                             return;
                         }
                         //   alert($("#comment").val());
-                        var parametros = {"NumeroSiniestro": $("#nro").val(), "NombreTrabajador": $("#aseg").val(), "LocalidadTrabajador": $("#localidadTrabajador").val(), "DocumentoTrabajador": $("#dniTrabajador").val(), "Empleador": $("#emp").val(), "Compania": $("#cmp").data("id"), "FechaInicio": $("#fecha").val(), "Prestador": $("#prest").data("id"), Procedimientos: $("#proc").data("id"), "Cerrado": $("#cerrado").attr("checked"), "Detalle": $("#comment").val(), "VieneDeConsulta": $("#VieneDeConsulta").val()};
+                        var parametros = {"NumeroSiniestro": $("#nro").val(), "NombreTrabajador": $("#aseg").val(), "LocalidadTrabajador": $("#localidadTrabajador").val(), "DocumentoTrabajador": $("#dniTrabajador").val(), "Empleador": $("#emp").val(), "Compania": $("#cmp").data("id"), "FechaInicio": $("#fecha").val(), "Prestador": $("#prest").data("id"), Procedimientos: $("#proc").data("id"), Estados: $("#est").data("IdEstado"), "Detalle": $("#comment").val(), "VieneDeConsulta": $("#VieneDeConsulta").val()};
                         $.ajax({async: false, cache: false, data: parametros, url: '../partials/GrabarNuevoSiniestro.php', type: 'post',
                             beforeSend: function () {
 
@@ -245,6 +251,15 @@
                         $("#proc").data({"id": $(this).find('td').eq(1).text()});
                     }
                 });
+                
+                $("#estados tr").click(function () {
+                    if ($(this).find('td').eq(2).text() !== "") {
+                        $("#est").val($(this).find('td').eq(2).text());
+                        $("#est").data({"id": $(this).find('td').eq(1).text()});
+                        $("#est").select();
+                    }
+                });
+                
                 $("#verMapa").click(function () {
                     var dire = escape($("#localidadTrabajador").val());
                     // alert(dire);
@@ -313,15 +328,17 @@
                 "$('#prest').val('" . mb_convert_encoding($row['NombrePrestadora'], 'UTF-8', 'windows-1252') . "');" .
                 "$('#zona').val('" . mb_convert_encoding($row['Zona'], 'UTF-8', 'windows-1252') . "');" .
                 "$('#proc').val('" . mb_convert_encoding($row['Procedimiento'], 'UTF-8', 'windows-1252') . "');" .
+    //            "$('#est').val('" . mb_convert_encoding($row['Estado'], 'UTF-8', 'windows-1252') . "');" .                        
                 "$('#comment').val('" . mb_convert_encoding($row['Detalle'], 'UTF-8', 'windows-1252') . "');" .
                 "$('#cmp').data({'id':" . $row['Compania'] . "});" .
                 "$('#prest').data({'id':" . $row['IdPrestadora'] . "});" .
                 "$('#proc').data({'id':" . $row['IdProcedimiento'] . "});" .
+    //            "$('#est').data({'id':" . $row['IdEstado'] . "});" .
                 "$('#VieneDeConsulta').val(" . $_GET['IdSiniestro'] . ");" .
                 "$('#IngresarNota').bind('click',function(){MostrarIngresoNotas();});" .
                 "</script>";
                 $date = date_create($row['FechaInicio']);
-                $sql = "Select * from Siniestros2 Where IdSiniestro=" . $_GET['IdSiniestro'] . " order by Fecha desc";
+                $sql = "Select * from Siniestros2 Where IdSiniestro=" . $_GET['IdSiniestro'] . " order by Fecha asc";
                 $consulta2 = $Base->Consulta($sql);
 /////////////////////
                 $e = "" .

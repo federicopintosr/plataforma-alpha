@@ -55,7 +55,7 @@
 //    $Sql = "Select count(*) as Registros From M_Usuarios Where nombre='" . $_SESSION['nombre'] . "' and Pass='" . $_SESSION['pass'] . "'";
         //  $fila = $Base->Valor($Sql);
 
-        $serverName = "marcosj.dyndns.org";
+        $serverName = "urujuancho.dyndns.org";
         $usuario = "Fede";
         $pass = "2401";
         $baseDeDatos = "alpha";
