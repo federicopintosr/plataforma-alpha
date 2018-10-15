@@ -273,6 +273,11 @@
                             } else {
                                 alert("No se grabó la nota. " + $("status", response).text());
 
+
+
+
+
+
                             }
 
                         }, error: function (response) {

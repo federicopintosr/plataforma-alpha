@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="/../Jquery bajadas/JAlert.css" />
         <link rel="shortcut icon" href="./images/icono.ico">
         <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <link href="./build/css/custom.min.css" rel="stylesheet">
 
 
         <script type="text/javascript">
@@ -92,51 +93,53 @@
 //Si no existe la sesiÃ³n de usuario mostramos el formulario de loguin
         if (!isset($_SESSION['username'])) {
             ?>
+    <body class="login">
         <div class="login_wrapper">
         <div class="animate form login_form">
-          <section class="login_content">
-              
+          <section class="login_content">    
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" id="idFormInicioSesion">
+              <h1>Ingreso</h1>
+                       
+                <div>
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input  type="text" id='usuario' name="usuario" class="form-control" onkeyup="FEnter(event, this);" ><br><br>
+                </div>
 
-                <div class="panel panel-success" style='width:35%;height: 28rem;' >
+                <div>
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input type="password" id='pass' name="pass" class="form-control" onkeyup="FEnter(event, this);" ><br><br>
+                    </ul>
+                </div>
+                    <br>
+                    <br>
 
+                    <div class="modal-footer">
 
-                    <div class="panel-heading ">
-                        <p class="tituloSiniestro"> Gestion web </p>
+                        <input type="button" class="btn btn-success" id='BotonIngresar' name="boton" value="Ingresar" class="botonInicial"  onclick="submit();">
+
+                        <br>
+
+                        <p Id='mensaje'></p>
+
+                        <script>document.getElementById('FMenu').style = 'display:none';</script>
                     </div>
+                <div class="separator">
 
-                    <div class="panel-body">
+                <div class="clearfix"></div>
+                <br />
 
-                        <ul>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input  type="text" id='usuario' name="usuario" class="form-control" onkeyup="FEnter(event, this);" ><br><br>
-                            </div>
-
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                <input type="password" id='pass' name="pass" class="form-control" onkeyup="FEnter(event, this);" ><br><br>
-                                </ul>
-
-                                <br>
-                                <br>
-
-                                <div class="modal-footer">
-
-                                    <input type="button" class="btn btn-success" id='BotonIngresar' name="boton" value="Ingresar" class="botonInicial"  onclick="submit();">
-
-                                    <br>
-
-                                    <p Id='mensaje'></p>
-
-                                    <script>document.getElementById('FMenu').style = 'display:none';</script>
-                                </div>
-
-                            </div>
-                            </form>
+                <div>
+                  <h1><i class="fa fa-shopping-bag"></i> Plataforma Alpha</h1>
+                  <p> </p>
+                </div>
+              </div>
+                
+            </form>
                        </section>
 
         </div>
+        </div>
+    </body>
 
                             <?php
                             // echo  MostrarMenu();
@@ -177,3 +180,4 @@
 
 
 
+</body>
