@@ -47,8 +47,8 @@
                     <thead>
                         <tr>
                             <th style="text-align: left;width: 35%;">Damnificado</th>
-                            <th style="text-align: center;width: 15%;">Fecha Inicio</th>
-                            <th style="text-align: right;width: 20%;">Número de caso</th>
+                            <th style="text-align: center;width: 9%;">Fecha Inicio</th>
+                            <th style="text-align: center;width: 10%;">Número de caso</th>
                             <th style="text-align: center;width: 10%;">Estado</th>
                             <th style="text-align: center;width: 5%;">Numero de caso interno</th>
                         </tr>
@@ -63,7 +63,7 @@
                             //echo $filtro;
                         }
 
-                        $sql = "Select Id,NombreTrabajador,Numero,Estado,FechaInicio from v_siniestros " . $filtro . "  Order by Id desc limit 5000 ";
+                        $sql = "Select Id,NombreTrabajador,Numero,Estado,DATE_FORMAT(FechaInicio,'%d/%m/%Y') AS fecha_sola from v_siniestros " . $filtro . "  Order by Id desc limit 5000 ";
                         $consulta = $Base->Consulta($sql);
 
                         $fila = 1;
@@ -71,7 +71,7 @@
                             ?>
                             <tr class="filaTr" >
                                 <td style="text-align: left;width: 40%;"><?php echo mb_convert_encoding($row['NombreTrabajador'], 'UTF-8', 'windows-1252'); ?> </td>
-                                <td style="text-align: right;" ><?php echo mb_convert_encoding($row['FechaInicio'], 'UTF-8', 'windows-1252'); ?></td>
+                                <td style="text-align: right;" ><?php echo mb_convert_encoding($row['fecha_sola'], 'UTF-8', 'windows-1252'); ?></td>
                                 <td style="text-align: center;width:20%;"><?php echo mb_convert_encoding($row['Numero'], 'UTF-8', 'windows-1252'); ?></td>
                                 <td style="text-align: center;width:20%;"><?php echo mb_convert_encoding($row['Estado'], 'UTF-8', 'windows-1252'); ?></td>
                                 <td style="text-align: right;" ><Input type="button" class="IdSiniestro" value=" <?php echo mb_convert_encoding($row['Id'], 'UTF-8', 'windows-1252'); ?>"/></td>
